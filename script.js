@@ -447,7 +447,8 @@ function showPlayerDetails(player) {
         <p><strong>Points Earned From Games:</strong> ${gamePointsTotal}</p>
         <p><strong>Sympathy Points:</strong> ${player.sympathy}</p>
         <p><strong>Awesomeness Points:</strong> ${player.awesome}</p>
-        <p><strong>Overall Total Points:</strong> ${gamePointsTotal + player.sympathy}</p>
+        <p><strong>Overall Total Points:</strong> ${gamePointsTotal + player.sympathy + player.awesome}</p>
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
