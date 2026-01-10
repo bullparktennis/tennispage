@@ -65,7 +65,10 @@ const alexGames = [
     {p2: "Jon N", type: "d", quantity: 1},
     {p2: "Mikey B", type: "s", quantity: 2},
     {p2: "Mikey B", type: "d", quantity: 1},
-    {p2: "Jessy R", type: "d", quantity:1}
+    {p2: "Jessy R", type: "d", quantity:1},
+    {p2: "John R", type: "d", quantity: 1},
+    {p2: "Chris B", type: "d", quantity: 1},
+    {p2: "Sid S", type: "d", quantity: 1}
 
 ]
 const alexSympathy = 0;
@@ -84,9 +87,10 @@ const amyAwe = 0;
 const andrewGames= [
     {p2: "Alex G", type: "d", quantity: 1},
     {p2: "Eric P", type: "d", quantity: 2},
-    {p2: "Katherine F", type: "d", quantity: 1},
+    {p2: "Katherine F", type: "d", quantity: 2},
     {p2: "Mikey B", type: "d", quantity: 1},
-    {p2: "Chris B", type: "d", quantity: 1}
+    {p2: "Chris B", type: "d", quantity: 1},
+    {p2: "Brad J", type: "d", quantity: 1}
 ]
 const andrewSympathy = 0;
 const andrewAwe = 0;
@@ -97,7 +101,8 @@ const bradGames = [
     {p2: "Eric P", type: "d", quantity: 1},
     {p2: "Sid S", type: "d", quantity: 1},
     {p2: "Jessy R", type: "d", quantity:1},
-    {p2: "Brandon Y", type: "d", quantity: 1}
+    {p2: "Brandon Y", type: "d", quantity: 1},
+    {p2: "Andrew H", type: "d", quantity: 1}
 ]
 const bradSympathy = 3;
 const bradAwe = 0;
@@ -124,9 +129,11 @@ const chrisGames = [
    {p2: "Eddie H", type: "d", quantity: 1},
    {p2: "Jodi H", type: "d", quantity: 1},
    {p2: "Katherine F", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 1},
+   {p2: "Sid S", type: "d", quantity: 2},
    {p2: "Mikey B", type: "d", quantity: 1},
-   {p2: "Andrew G", type: "d", quantity: 1}
+   {p2: "Andrew G", type: "d", quantity: 1},
+   {p2: "Eric P", type: "d", quantity: 1},
+   {p2: "Alex G", type: "d", quantity:1}
 ];
 const chrisSympathy = 0;
 const chrisAwe = 2;
@@ -171,7 +178,7 @@ const ericDGames = [
    {p2: "Mikey B", type: "d", quantity: 3},
    {p2: "Sid S", type: "d", quantity: 1}
 ];
-const ericDSympathy= 0;
+const ericDSympathy= 1;
 const ericDAwe = 0;
 
 
@@ -203,6 +210,7 @@ const ericPGames = [
    {p2: "Jodi H", type: "d", quantity: 1},
    {p2: "Katherine F", type: "d", quantity: 1},
    {p2: "Sid S", type: "d", quantity: 2},
+   {p2: "Chris B", type: "d", quantity: 1}
 ];
 const ericPSympathy= 1;
 const ericPAwe = 0;
@@ -215,7 +223,7 @@ const iraGames = [
    {p2: "Sid S", type: "d", quantity: 1},
 
 ];
-const iraSympathy = 3;
+const iraSympathy = 4;
 const iraAwe = 0;
 
 
@@ -231,7 +239,7 @@ const jessyGames = [
     {p2: "Brad J", type: "d", quantity:1},
     {p2: "Alex G", type: "d", quantity:1}
 ];
-const jessySympathy = 0;
+const jessySympathy = 1;
 const jessyAwe = 0;
 
 
@@ -250,6 +258,7 @@ const jodiAwe = 0;
 const jonGames = [
    {p2: "Alex G", type: "d", quantity: 1},
    {p2: "Eddie H", type: "d", quantity: 1},
+   {p2: "Sid S", type: "d", quantity: 1}
 
 ];
 const jonSympathy = 0;
@@ -257,13 +266,14 @@ const jonAwe = 0;
 
 
 const johnGames = [
+    {p2: "Alex G", type: "d", quantity:1}
 ];
 const johnSympathy = 2;
 const johnAwe = 0;
 
 
 const katherineGames = [
-   {p2: "Andrew H", type: "d", quantity: 1},
+   {p2: "Andrew H", type: "d", quantity: 2},
    {p2: "Chris B", type: "d", quantity: 1},
    {p2: "Derek J", type: "d", quantity: 1},
    {p2: "Eric P", type: "d", quantity: 1},
@@ -283,7 +293,7 @@ const mikeyGames = [
    {p2: "Sid S", type: "d", quantity: 3},
    {p2: "Chris B", type: "d", quantity: 1}
 ]
-const mikeySympathy = 1;
+const mikeySympathy = 2;
 const mikeyAwe = 0;
 
 
@@ -304,13 +314,15 @@ const scottAwe = 0;
 
 const sidGames = [
    {p2: "Brad J", type: "d", quantity: 1},
-   {p2: "Chris B", type: "d", quantity: 1},
+   {p2: "Chris B", type: "d", quantity: 2},
    {p2: "Derek J", type: "d", quantity: 1},
    {p2: "Eric P", type: "d", quantity: 2},
    {p2: "Ira D", type: "d", quantity: 1},
    {p2: "Mikey B", type: "d", quantity: 3},
    {p2: "Eric D", type: "d", quantity: 1},
-   {p2: "Brandon Y", type: "d", quantity: 1}
+   {p2: "Brandon Y", type: "d", quantity: 1},
+   {p2: "Alex G", type: "d", quantity: 1},
+   {p2: "Jon R", type: "d", quantity: 1}
 ];
 const sidSympathy = 0;
 const sidAwe = 0;
@@ -451,4 +463,3 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
-
