@@ -258,7 +258,6 @@ const jodiAwe = 0;
 const jonGames = [
    {p2: "Alex G", type: "d", quantity: 1},
    {p2: "Eddie H", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 1}
 
 ];
 const jonSympathy = 0;
@@ -266,7 +265,8 @@ const jonAwe = 0;
 
 
 const johnGames = [
-    {p2: "Alex G", type: "d", quantity:1}
+    {p2: "Alex G", type: "d", quantity:1},
+    {p2: "Sid S", type: "d", quantity: 1}
 ];
 const johnSympathy = 2;
 const johnAwe = 0;
@@ -322,7 +322,7 @@ const sidGames = [
    {p2: "Eric D", type: "d", quantity: 1},
    {p2: "Brandon Y", type: "d", quantity: 1},
    {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Jon R", type: "d", quantity: 1}
+   {p2: "John R", type: "d", quantity: 1}
 ];
 const sidSympathy = 0;
 const sidAwe = 0;
@@ -414,7 +414,9 @@ playerList.forEach(player => {
 
         player.games.forEach(game => {
             const p2Player = playerList.find(p => p.name === game.p2);
-            if (!p2Player) return;
+            if (!p2Player) {
+                throw new Error(`Player not found: ${game.p2}`);
+            }
 
             if (game.type === "d") {
                 p2Player.link.classList.add("p2Doubles");
