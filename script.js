@@ -411,3 +411,4 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
