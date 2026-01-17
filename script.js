@@ -15,10 +15,19 @@ class Person{
     calculateScore() {
         let totalPoints = 0;
         this.games.forEach(game => {
-            totalPoints += points(this.name, game.p2, game.quantity);
+            totalPoints += points(this.name, game.person2, game.quantity);
         });
         totalPoints = totalPoints + this.sympathy + this.awesome;
         return totalPoints;
+    }
+}
+
+class Game{
+    constructor(person1, person2, type, quantity) {
+        this.person1 = person1;
+        this.person2 = person2;
+        this.type = type;
+        this.quantity = quantity;
     }
 }
 
@@ -54,286 +63,222 @@ function points(name, p2, quantity){
 
 
 
-// ALEX 
-const alexGames = [
-    {p2: "Andrew H", type: "d", quantity: 1},
-    {p2: "Chris B", type: "s", quantity: 1},
-    {p2: "David G", type: "d", quantity: 1},
-    {p2: "Eddie H", type: "d", quantity: 1},
-    {p2: "Eric P", type: "d", quantity: 1},
-    {p2: "Ira D", type: "d", quantity: 1},
-    {p2: "Jon N", type: "d", quantity: 1},
-    {p2: "Mikey B", type: "s", quantity: 2},
-    {p2: "Mikey B", type: "d", quantity: 1},
-    {p2: "Jessy R", type: "d", quantity:1},
-    {p2: "John R", type: "d", quantity: 1},
-    {p2: "Chris B", type: "d", quantity: 1},
-    {p2: "Sid S", type: "d", quantity: 1}
-
-]
-const alexSympathy = 0;
-const alexAwe = 0;
-
-
-// AMY
-const amyGames = [
-    {p2: "Steve M", type: "d", quantity: 1}
-]
-const amySympathy = 2;
-const amyAwe = 0;
-
-
-// ANDREW
-const andrewGames= [
-    {p2: "Alex G", type: "d", quantity: 1},
-    {p2: "Eric P", type: "d", quantity: 2},
-    {p2: "Katherine F", type: "d", quantity: 2},
-    {p2: "Mikey B", type: "d", quantity: 1},
-    {p2: "Chris B", type: "d", quantity: 1},
-    {p2: "Brad J", type: "d", quantity: 1}
-]
-const andrewSympathy = 0;
-const andrewAwe = 0;
-
-
-// BRAD
-const bradGames = [
-    {p2: "Eric P", type: "d", quantity: 1},
-    {p2: "Sid S", type: "d", quantity: 1},
-    {p2: "Jessy R", type: "d", quantity:1},
-    {p2: "Brandon Y", type: "d", quantity: 1},
-    {p2: "Andrew H", type: "d", quantity: 1}
-]
-const bradSympathy = 3;
-const bradAwe = 0;
-
-
-
-const brandonGames = [
-   {p2: "David F", type: "d", quantity: 1},
-   {p2: "Eddie H", type: "s", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-   {p2: "Jodi H", type: "d", quantity: 1},
-   {p2: "Scott U", type: "d", quantity: 1},
-   {p2: "Derek J", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 1},
-   {p2: "Brad J", type: "d", quantity:1}
-]
-const brandonSympathy = 0;
-const brandonAwe = 2;
-
-
-const chrisGames = [
-   {p2: "Derek J", type: "d", quantity: 1},
-   {p2: "Eric D", type: "d", quantity: 1},
-   {p2: "Eddie H", type: "d", quantity: 1},
-   {p2: "Jodi H", type: "d", quantity: 1},
-   {p2: "Katherine F", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 2},
-   {p2: "Mikey B", type: "d", quantity: 1},
-   {p2: "Andrew G", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-   {p2: "Alex G", type: "d", quantity:1}
+const playerNames = [
+    "Alex G", "Amy L", "Andrew H", "Brad J", "Brandon Y", "Chris B",
+    "David F", "David G", "Derek J", "Eric D", "Eddie H", "Eric P",
+    "Ira D", "Jana C", "Jessy R", "Jodi H", "Jon N", "John R",
+    "Katherine F", "Mikey B", "Roxy N", "Scott U", "Sid S", "Steve M"
 ];
-const chrisSympathy = 0;
-const chrisAwe = 2;
+
+const playerList = playerNames.map(name => new Person(name, [], 0, 0));
 
 
-
-const davidFGames = [
-   {p2: "Brandon Y", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1}
-]
-const davidFSympathy = 2;
-const davidFAwe = 0;
+const playerMap = {};
+playerList.forEach(player => {
+    playerMap[player.name] = player;
+});
 
 
+// GAMES
+const games = [
+  // 11/08/2025
+  new Game("Alex G", "Mikey B", "s", 1),
+  new Game("Alex G", "Mikey B", "s", 1),
+  new Game("Alex G", "Chris B", "s", 1),
+  new Game("Katherine F", "Chris B", "d", 1),
+  new Game("Jodi H", "Chris B", "d", 1),
+  new Game("Sid S", "Ira D", "d", 1),
+  new Game("Ira D", "Roxy N", "d", 1),
+  new Game("Sid S", "Eric P", "d", 1),
+  new Game("Brad J", null, "sym", 1),
+  new Game("Mikey B", null, "sym", 1),
 
-const davidGGames = [
-   {p2: "Eric D", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-   {p2: "Jodi H", type: "d", quantity: 1}
-]
-const davidGSympathy = 1;
-const davidGAwe = 2;
+  // 11/15/2025
+  new Game("Brandon Y", "Eddie H", "s", 1),
+  new Game("Mikey B", "David F", "s", 2),
+  new Game("Katherine F", "Derek J", "d", 1),
+  new Game("Eddie H", "Eric P", "d", 1),
+  new Game("Eddie H", "Chris B", "d", 1),
+  new Game("Sid S", "Chris B", "d", 1),
+  new Game("Derek J", "Chris B", "d", 1),
+  new Game("Brandon Y", "Eric P", "d", 1),
+  new Game("David F", null, "sym", 1),
+  new Game("Ira D", null, "sym", 1),
+
+  // 11/22/2025
+  new Game("Sid S", "Mikey B", "d", 1),
+  new Game("Jodi H", "Eric D", "d", 1),
+  new Game("Eddie H", "Ira D", "d", 1),
+  new Game("Eric P", "Eric D", "d", 1),
+  new Game("David G", "Eddie H", "d", 1),
+  new Game("Mikey B", "Eric D", "d", 1),
+  new Game("Eric P", "David G", "d", 1),
+
+  // 11/29/2025
+  new Game("Alex G", "Derek J", "d", 1),
+  new Game("Alex G", "Ira D", "d", 1),
+  new Game("Alex G", "Mikey B", "d", 1),
+  new Game("Eric P", "Brad J", "d", 1),
+  new Game("Sid S", "Brad J", "d", 1),
+  new Game("David G", null, "sym", 1),
+
+  // 12/06/2025
+  new Game("Derek J", "Eric P", "s", 1),
+  new Game("Derek J", "Mikey B", "s", 1),
+  new Game("Alex G", "Jon N", "d", 1),
+  new Game("Alex G", "Eddie H", "d", 1),
+  new Game("Jon N", "Eddie H", "d", 1),
+  new Game("David F", "Eric P", "d", 1),
+  new Game("David F", "Brandon Y", "d", 1),
+  new Game("Sid S", "Mikey B", "d", 1),
+  new Game("Ira D", null, "sym", 1),
+  new Game("Brandon Y", null, "awe", 2),
+  new Game("Chris B", null, "awe", 2),
+  new Game("David G", null, "awe", 2),
+  new Game("Katherine F", null, "awe", 2),
 
 
-const derekGames = [
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Chris B", type: "d", quantity: 1},
-   {p2: "Eric P", type: "s", quantity: 1},
-   {p2: "Katherine F", type: "d", quantity: 1},
-   {p2: "Mikey B", type: "s", quantity: 1},
-   {p2: "Brandon Y", type: "d", quantity: 1}
+  // 12/13/2025
+  new Game("Eric D", "Mikey B", "d", 1),
+  new Game("Eric D", "Chris B", "d", 1),
+  new Game("Katherine F", "Andrew H", "d", 1),
+  new Game("Katherine F", "Eric P", "d", 1),
+  new Game("Katherine F", "Mikey B", "d", 1),
+  new Game("Jana C", "Eric P", "d", 1),
+  new Game("Sid S", "Derek J", "d", 1),
+  new Game("Sid S", "Eric P", "d", 1),
+  new Game("Ira D", null, "sym", 1),
+  new Game("Derek J", null, "sym", 1),
+  new Game("Eddie H", null, "sym", 2),
+  new Game("Amy L", null, "sym", 1),
+
+  // 12/20/2025
+  new Game("Andrew H", "Eric P", "d", 1),
+  new Game("Andrew H", "Mikey B", "d", 1),
+  new Game("Steve M", "Eddie H", "d", 1),
+  new Game("Steve M", "Amy L", "d", 1),
+  new Game("Ira D", "Eddie H", "d", 1),
+  new Game("Mikey B", "Sid S", "d", 1),
+  new Game("John R", null, "sym", 1),
+  new Game("Derek J", null, "sym", 1),
+  new Game("Katherine F", null, "sym", 1),
+  new Game("Scott U", null, "sym", 1),
+  new Game("Brad J", null, "sym", 1),
+  new Game("David F", null, "sym", 1),
+
+  // 12/27/2025
+  new Game("Andrew H", "Alex G", "d", 1),
+  new Game("Andrew H", "Eric P", "d", 1),
+  new Game("Alex G", "Eric P", "d", 1),
+  new Game("Jodi H", "Eric P", "d", 1),
+  new Game("Jodi H", "Brandon Y", "d", 1),
+  new Game("Jodi H", "David G", "d", 1),
+  new Game("Mikey B", "Eric D", "d", 1),
+  new Game("Scott U", "Brandon Y", "d", 1),
+  new Game("John R", null, "sym", 1),
+  new Game("Amy L", null, "sym", 1),
+  new Game("Brad J", null, "sym", 1),
+
+  // 01/03/2026
+  new Game("Brandon Y", "Derek J", "d", 1),
+  new Game("Brandon Y", "Sid S", "d", 1),
+  new Game("Brandon Y", "Brad J", "d", 1),
+  new Game("Eric D", "Sid S", "d", 1),
+  new Game("Mikey B", "Chris B", "d", 1),
+  new Game("Andrew H", "Chris B", "d", 1),
+  new Game("Jessy R", "Brad J", "d", 1),
+  new Game("Jessy R", "Alex G", "d", 1),
+  new Game("Katherine F", null, "sym", 1),
+  new Game("Eric P", null, "sym", 1),
+
+  // 01/10/2026
+  new Game("Chris B", "Alex G", "d", 1),
+  new Game("Chris B", "Eric P", "d", 1),
+  new Game("Chris B", "Sid S", "d", 1),
+  new Game("Alex G", "Sid S", "d", 1),
+  new Game("John R", "Sid S", "d", 1),
+  new Game("John R", "Alex G", "d", 1),
+  new Game("Andrew H", "Brad J", "d", 1),
+  new Game("Andrew H", "Katherine F", "d", 1),
+  new Game("Jessy R", null, "sym", 1),
+  new Game("Ira D", null, "sym", 1),
+  new Game("Mikey B", null, "sym", 1),
+  new Game("Eric D", null, "sym", 1),
+
+  // 01/17/2026
+  new Game("John R", "Alex G", "d", 1),
+  new Game("Mikey B", "Alex G", "d", 1),
+  new Game("Andrew H", "Eric P", "d", 1),
+  new Game("Mikey B", "Eric P", "d", 1),
+  new Game("Brandon Y", "Katherine F", "d", 1),
+  new Game("Brad J", "Jessy R", "d", 1),
+  new Game("Chris B", null, "sym", 1),
+  new Game("Roxy N", null, "sym", 1),
+  new Game("Sid S", null, "sym", 1),
+  new Game("Chris B", null, "awe", 1),
+  new Game("Brad J", null, "awe", 1),
+  new Game("Jessy R", null, "awe", 1),
+  new Game("Roxy N", null, "awe", 1),
+  new Game("Sid S", null, "awe", 1),
+  new Game("Alex G", null, "awe", 1),
+  new Game("John R", null, "awe", 1),
+  new Game("Katherine F", null, "awe", 1),
+  new Game("Eric P", null, "awe", 1),
+  new Game("Mikey B", null, "awe", 1),
+  new Game("Andrew H", null, "awe", 1),
+  new Game("Brandon Y", null, "awe", 1),
 ];
-const derekSympathy = 2;
-const derekAwe = 0;
 
 
 
-const ericDGames = [
-   {p2: "Chris B", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-   {p2: "Jodi H", type: "d", quantity: 1},
-   {p2: "Mikey B", type: "d", quantity: 3},
-   {p2: "Sid S", type: "d", quantity: 1}
-];
-const ericDSympathy= 1;
-const ericDAwe = 0;
+
+games.forEach(game => {
+    const p1 = playerMap[game.person1];
+    const p2 = playerMap[game.person2];
+
+    if (game.type === "awe") {
+        p1.awesome += game.quantity;
+    } else if (game.type === "sym") {
+        p1.sympathy += game.quantity;
+    } else if (game.type === "d" || game.type === "s") {
+
+        addOrMergeGame({
+            type: game.type,
+            person2: game.person2,
+            quantity: game.quantity
+        }, p1);
+
+        if (game.type == "d" && p2) {
+            addOrMergeGame({
+            type: game.type,
+            person2: game.person1,
+            quantity: game.quantity
+        }, p2);
+    }
+    } else {
+        throw Error("Invalid game type");
+    }
+});
 
 
+function addOrMergeGame(game, player) {
+    const type = game.type;
+    const p2 = game.person2;
 
-const eddieGames = [
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Chris B", type: "d", quantity: 1},
-   {p2: "David G", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-   {p2: "Ira D", type: "d", quantity: 2},
-   {p2: "Jon N", type: "d", quantity: 1},
-   {p2: "Steve M", type: "d", quantity: 1}
+    const findGame = player.games.find(
+    g => g.type === type && g.person2 === p2
+    );
 
-];
-const eddieSympathy = 2;
-const eddieAwe = 0;
-
-
-const ericPGames = [
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Andrew H", type: "d", quantity: 2},
-   {p2: "Brad J", type: "d", quantity: 1},
-   {p2: "Brandon Y", type: "d", quantity: 1},
-   {p2: "David F", type: "d", quantity: 1},
-   {p2: "David G", type: "d", quantity: 1},
-   {p2: "Eric D", type: "d", quantity: 1},
-   {p2: "Eddie H", type: "d", quantity: 1},
-   {p2: "Jana C", type: "d", quantity: 1},
-   {p2: "Jodi H", type: "d", quantity: 1},
-   {p2: "Katherine F", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 2},
-   {p2: "Chris B", type: "d", quantity: 1}
-];
-const ericPSympathy= 1;
-const ericPAwe = 0;
-
-
-const iraGames = [
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Eddie H", type: "d", quantity: 2},
-   {p2: "Roxy N", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 1},
-
-];
-const iraSympathy = 4;
-const iraAwe = 0;
-
-
-const janaGames = [
-   {p2: "Eric P", type: "d", quantity: 1},
-
-];
-const janaSympathy= 0;
-const janaAwe = 0;
-
-
-const jessyGames = [
-    {p2: "Brad J", type: "d", quantity:1},
-    {p2: "Alex G", type: "d", quantity:1}
-];
-const jessySympathy = 1;
-const jessyAwe = 0;
-
-
-const jodiGames = [
-   {p2: "Brandon Y", type: "d", quantity: 1},
-   {p2: "Chris B", type: "d", quantity: 1},
-   {p2: "David G", type: "d", quantity: 1},
-   {p2: "Eric D", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-
-];
-const jodiSympathy = 0;
-const jodiAwe = 0;
-
-
-const jonGames = [
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Eddie H", type: "d", quantity: 1},
-
-];
-const jonSympathy = 0;
-const jonAwe = 0;
-
-
-const johnGames = [
-    {p2: "Alex G", type: "d", quantity:1},
-    {p2: "Sid S", type: "d", quantity: 1}
-];
-const johnSympathy = 2;
-const johnAwe = 0;
-
-
-const katherineGames = [
-   {p2: "Andrew H", type: "d", quantity: 2},
-   {p2: "Chris B", type: "d", quantity: 1},
-   {p2: "Derek J", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 1},
-   {p2: "Mikey B", type: "d", quantity: 1},
-
-]
-const katherineSympathy = 2;
-const katherineAwe = 2;
-
-
-const mikeyGames = [
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "Andrew H", type: "d", quantity: 1},
-   {p2: "David F", type: "s", quantity: 2},
-   {p2: "Eric D", type: "d", quantity: 3},
-   {p2: "Katherine F", type: "d", quantity: 1},
-   {p2: "Sid S", type: "d", quantity: 3},
-   {p2: "Chris B", type: "d", quantity: 1}
-]
-const mikeySympathy = 2;
-const mikeyAwe = 0;
-
-
-const roxyGames = [ 
-   {p2: "Ira D", type: "d", quantity: 1},
-]
-const roxySympathy = 0;
-const roxyAwe = 0;
-
-
-const scottGames = [
-   {p2: "Brandon Y", type: "d", quantity: 1},
-
-];
-const scottSympathy = 1;
-const scottAwe = 0;
-
-
-const sidGames = [
-   {p2: "Brad J", type: "d", quantity: 1},
-   {p2: "Chris B", type: "d", quantity: 2},
-   {p2: "Derek J", type: "d", quantity: 1},
-   {p2: "Eric P", type: "d", quantity: 2},
-   {p2: "Ira D", type: "d", quantity: 1},
-   {p2: "Mikey B", type: "d", quantity: 3},
-   {p2: "Eric D", type: "d", quantity: 1},
-   {p2: "Brandon Y", type: "d", quantity: 1},
-   {p2: "Alex G", type: "d", quantity: 1},
-   {p2: "John R", type: "d", quantity: 1}
-];
-const sidSympathy = 0;
-const sidAwe = 0;
-
-
-const steveGames = [
-   {p2: "Amy L", type: "d", quantity: 1},
-   {p2: "Eddie H", type: "d", quantity: 1},
-];
-const steveSympathy = 0;
-const steveAwe = 0;
+    if (findGame) {
+        findGame.quantity += game.quantity;
+    } else {
+        player.games.push({
+            type: game.type,
+            person2: game.person2,
+            quantity: game.quantity
+        });
+    }
+}
 
 
 
@@ -341,34 +286,35 @@ const steveAwe = 0;
 
 
 
-// PEOPLE
-const alex = new Person("Alex G", alexGames, alexSympathy, alexAwe);
-const amy = new Person("Amy L", amyGames, amySympathy, amyAwe);
-const andrew = new Person("Andrew H", andrewGames, andrewSympathy, andrewAwe);
-const brad = new Person("Brad J", bradGames, bradSympathy, bradAwe);
-const brandon = new Person("Brandon Y", brandonGames, brandonSympathy, brandonAwe);
-const chris = new Person("Chris B", chrisGames, chrisSympathy, chrisAwe);
-const davidF = new Person("David F", davidFGames, davidFSympathy, davidFAwe);
-const davidG = new Person("David G", davidGGames, davidGSympathy, davidGAwe);
-const derek = new Person("Derek J", derekGames, derekSympathy, derekAwe);
-const ericD = new Person("Eric D", ericDGames, ericDSympathy, ericDAwe);
-const eddie = new Person("Eddie H", eddieGames, eddieSympathy, eddieAwe);
-const ericP = new Person("Eric P", ericPGames, ericPSympathy, ericPAwe);
-const ira = new Person("Ira D", iraGames, iraSympathy, iraAwe);
-const jana = new Person("Jana C", janaGames, janaSympathy, janaAwe);
-const jessy = new Person("Jessy R", jessyGames, jessySympathy, jessyAwe);
-const jodi = new Person("Jodi H", jodiGames, jodiSympathy, jodiAwe);
-const jon = new Person("Jon N", jonGames, jonSympathy, jonAwe);
-const john = new Person("John R", johnGames, johnSympathy, johnAwe);
-const katherine = new Person("Katherine F", katherineGames, katherineSympathy, katherineAwe);
-const mikey = new Person("Mikey B", mikeyGames, mikeySympathy, mikeyAwe);
-const roxy = new Person("Roxy N", roxyGames, roxySympathy, roxyAwe);
-const scott = new Person("Scott U", scottGames, scottSympathy, scottAwe);
-const sid = new Person("Sid S", sidGames, sidSympathy, sidAwe);
-const steve = new Person("Steve M", steveGames, steveSympathy, steveAwe);
 
-// PEOPLE LIST
-const playerList = [alex, amy, andrew, brad, brandon, chris, davidF, davidG, derek, ericD, eddie, ericP, ira, jana, jessy, jodi, jon, john, katherine, mikey, roxy, scott, sid, steve];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+playerList.forEach(player => {
+    player.score = player.calculateScore();
+    player.games.sort((a,b) =>
+        a.person2.localeCompare(b.person2)
+    )
+});
+
 playerList.sort((a,b) => b.score - a.score);
 playerList.forEach((player, index) => {
     player.currentRank = index + 1;
@@ -413,9 +359,9 @@ playerList.forEach(player => {
         selectedPlayerLink = link;
 
         player.games.forEach(game => {
-            const p2Player = playerList.find(p => p.name === game.p2);
+            const p2Player = playerList.find(p => p.name === game.person2);
             if (!p2Player) {
-                throw new Error(`Player not found: ${game.p2}`);
+                throw new Error(`Player not found: ${game.person2}`);
             }
 
             if (game.type === "d") {
@@ -441,12 +387,12 @@ function showPlayerDetails(player) {
         <ul>
             ${player.games.map(game => {
                 const gameText = game.type === "d" 
-                    ? `Doubles with <span class="playerNameDoubles">${game.p2}</span>` 
-                    : `Singles against <span class="playerNameSingles">${game.p2}</span>`;
+                    ? `Doubles with <span class="playerNameDoubles">${game.person2}</span>` 
+                    : `Singles against <span class="playerNameSingles">${game.person2}</span>`;
 
                 const gamePoints = points(
                     player.name,
-                    game.p2,
+                    game.person2,
                     game.quantity
                 );
 
