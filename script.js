@@ -327,13 +327,6 @@ function addOrMergeGame(game, player) {
 
 
 
-
-
-
-
-
-
-
 playerList.forEach(player => {
     player.score = player.calculateScore();
     player.games.sort((a,b) =>
@@ -437,6 +430,5 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
-
 
 
