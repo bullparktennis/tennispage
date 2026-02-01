@@ -67,7 +67,7 @@ const playerNames = [
     "Alex G", "Amy L", "Andrew H", "Brad J", "Brandon Y", "Chris B",
     "David F", "David G", "Derek J", "Eric D", "Eddie H", "Eric P",
     "Ira D", "Jana C", "Jessy R", "Jodi H", "Jon N", "John R",
-    "Katherine F", "Mikey B", "Roxy N", "Scott U", "Sid S", "Steve M"
+    "Katherine F", "Mikey B", "Roxy N", "Scott U", "Sid S", "Steve M", "Josh Z", "Nelson C", "Aaron F", "Kevin H" 
 ];
 
 const playerList = playerNames.map(name => new Person(name, [], 0, 0));
@@ -238,7 +238,21 @@ const games = [
   new Game("David F", "Jessy R", "d", 1),
   new Game("Eric P", null, "sym", 1),
   new Game("Sid S", null, "sym", 1),
-  new Game("Jodi H", null, "sym", 1)
+  new Game("Jodi H", null, "sym", 1),
+
+ // 01/31/26
+  new Game("Amy L", "Eric P", "d", 1),
+  new Game("Mikey B", "Brandon Y", "d", 1),
+  new Game("Derek J", "Eric P", "d", 1),
+  new Game("Josh Z", "Ira D", "d", 1),
+  new Game("Alex G", "Eric P", "d", 1),
+  new Game("Kevin H", "Katherine F", "d", 1),
+  new Game("Aaron F", "Steve M", "d", 1),
+  new Game("Chris B", "Josh Z", "d", 1),
+  new Game("Chris B", "Katherine F", "d", 1),
+  new Game("Andrew H", null, "sym", 1),
+  new Game("Nelson C", null, "sym", 1),
+  new Game("Brad J", null, "sym", 1)
 ];
 
 
@@ -423,5 +437,6 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
 
 
