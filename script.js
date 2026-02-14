@@ -269,7 +269,18 @@ const games = [
   new Game("Mikey B", "Derek J", "d", 1),
   new Game("Derek J", "Aaron F", "d", 1),
   new Game("Alex G", null, "sym", 1),
-  new Game("Nelson C", null, "sym", 1)
+  new Game("Nelson C", null, "sym", 1),
+
+//02/24/26
+  new Game("Eric D", "Alex G", "d", 1),
+  new Game("Mikey B", "Alex G", "d", 1),
+  new Game("Mikey B", "Roxy N", "d", 1),
+  new Game("Ira D", "Roxy N", "d", 1), 
+  new Game("Sid S", "Amy L", "d", 1),
+  new Game("Jodi H", "Jessy R", "d", 1),
+  new Game("Andrew H", null, "sym", 1),
+  new Game("Jon N", null, "sym", 1),
+  new Game("Eddie H", null, "sym", 1)
 ];
 
 
@@ -447,6 +458,7 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
 
 
 
