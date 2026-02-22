@@ -297,7 +297,7 @@ const games = [
   new Game("Eddie H", null, "sym", 1),
   new Game("JJ T", null, "sym", 1),
   new Game("Alex G", null, "sym", 1),
-  new Game("Derek J", null, "sym", 2)
+  new Game("Derek J", null, "awe", 2)
 ];
 
 
@@ -475,6 +475,7 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
 
 
 
