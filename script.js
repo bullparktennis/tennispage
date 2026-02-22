@@ -281,7 +281,7 @@ const games = [
   new Game("Jodi H", "Jessy R", "d", 1),
   new Game("Andrew H", null, "sym", 1),
   new Game("Jon N", null, "sym", 1),
-  new Game("Eddie H", null, "sym", 1)
+  new Game("Eddie H", null, "sym", 1),
 
 //02/21/26
   new Game("Katherine F", "Graham M", "d", 1),
