@@ -297,7 +297,23 @@ const games = [
   new Game("Eddie H", null, "sym", 1),
   new Game("JJ T", null, "sym", 1),
   new Game("Alex G", null, "sym", 1),
-  new Game("Derek J", null, "awe", 2)
+  new Game("Derek J", null, "awe", 2),
+
+//02/28/26
+  new Game("Del C", "JJ T", "d", 1),
+  new Game("JJ T", "Josh Z", "d", 1),
+  new Game("Del C", "Ira D", "d", 1),
+  new Game("Steve M", "Ira D", "d", 1),
+  new Game("Andrew H", "Chris B", "d", 1),
+  new Game("Steve M", "Graham M", "d", 1),
+  new Game("Chris B", "John R", "d", 1),
+  new Game("Ira D", "Alex G", "d", 1),
+  new Game("JJ T", "Eric P", "d", 1),
+  new Game("Brad J", "Hans E", "d", 1),
+  new Game("Mikey B", "Del C", "d", 1),
+  new Game("Mikey B", "Hans E", "d", 1),
+  new Game("Brandon Y", null, "sym", 1),
+  new Game("Katherine F", null, "sym", 1)
 ];
 
 
@@ -475,6 +491,7 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
 
 
 
