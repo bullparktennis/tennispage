@@ -323,6 +323,10 @@ const games = [
   new Game("Brandon Y", "Andrew H", "d", 1),
   new Game("Andrew H", "Eddie H", "d", 1),
   new Game("Justin T", "Sid S", "d", 1),
+  new Game("Justin T", "Mikey B", "d", 1),
+  new Game("Ira D", "Eric P", "d", 1),
+  new Game("Justin T", "Eric P", "d", 1),
+
 
 
 ];
@@ -502,6 +506,7 @@ function showPlayerDetails(player) {
         <p><strong>Current Rank:</strong> ${player.currentRank}</p>
     `;
 }
+
 
 
 
